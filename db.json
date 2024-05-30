@@ -1795,48 +1795,6 @@
         "https://cdn.dummyjson.com/products/images/groceries/Kiwi/1.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Kiwi/thumbnail.png"
-    },
-    {
-      "title": "san pham moi 2025",
-      "price": "2000",
-      "description": "mo ta",
-      "id": 31
-    },
-    {
-      "title": "iphone 16 promax",
-      "price": "3000",
-      "description": "mo ta",
-      "id": 32
-    },
-    {
-      "title": "them san pham 2026",
-      "price": "1000",
-      "description": "mo ta",
-      "id": 33
-    },
-    {
-      "title": "",
-      "price": "",
-      "description": "",
-      "id": 34
-    },
-    {
-      "title": "dsdsdsds",
-      "price": "-2000",
-      "description": "",
-      "id": 35
-    },
-    {
-      "title": "hoan",
-      "price": "3000",
-      "description": "hoan",
-      "id": 36
-    },
-    {
-      "title": "test title",
-      "price": "9000",
-      "description": "test description",
-      "id": 37
     }
   ]
 }

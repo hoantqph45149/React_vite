@@ -1,5 +1,5 @@
 function Footer() {
-  return <footer>Copyright by hoangnm62</footer>;
+  return <footer>Copyright by Trần Quốc Hoàn</footer>;
 }
 
 export default Footer;

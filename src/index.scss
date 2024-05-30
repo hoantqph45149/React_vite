@@ -1,92 +1,127 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url("https://fonts.googleapis.com/css2?family=Honk:MORF,SHLN@0..45,0..100&display=swap");
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-h1 {
-	font-size: 32px;
-	font-weight: 800;
+body {
+  font-family: Arial, sans-serif;
+  a {
+    text-decoration: none;
+  }
 }
 
 header {
-	width: 100%;
-	position: fixed;
-	background-color: rgba($color: #000000, $alpha: 0.8);
-	color: #fff;
-	top: 0;
-	z-index: 99;
-	height: 100px;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
-	ul {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		height: 100%;
-		li {
-			margin-right: 24px;
-			a {
-				padding: 12px;
-				font-size: 20px;
-				font-weight: 800;
-				transition: all ease-in-out 0.3s;
-				&:hover {
-					color: rgb(215, 215, 255);
-					border-bottom: 2px solid rgb(215, 215, 255);
-				}
-			}
-		}
-	}
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: white;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo h1 {
+  font-family: "Honk", system-ui;
+  font-weight: 400;
+  font-variation-settings: "MORF" 0, "SHLN" 50;
+}
+
+.menu {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu a {
+  text-align: center;
+  position: relative;
+  color: #555;
+  font-size: 25px;
+  font-family: "Honk", system-ui;
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+.menu a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background-color: #ffc800;
+  transition: width 0.3s ease-in-out;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+.login {
+  display: flex;
+  align-items: center;
+}
+.login ul {
+  display: flex;
+  list-style: none;
+}
+.login li {
+  padding: 0 10px 0 10px;
+}
+
+.login a {
+  text-align: center;
+  position: relative;
+  color: #111;
+  font-size: 25px;
+  font-family: "Honk", system-ui;
+  text-decoration: none;
 }
 
 main {
-	margin: 140px auto 40px;
-	min-height: calc(100vh - 164px);
-}
-
-.card {
-	max-width: 100%;
-	border: 1px solid #ccc;
-	box-shadow: rgba($color: #000000, $alpha: 0.8);
-	border-radius: 8px;
-	margin: 12px 32px;
-	.img {
-		height: 200px;
-	}
-	.content {
-		padding: 20px;
-		h2 {
-			font-size: 20px;
-			font-weight: 800;
-			color: blue;
-		}
-		button {
-			width: 100%;
-		}
-	}
+  margin-top: 140px;
 }
 
 footer {
-	width: 100%;
-	background-color: #111;
-	color: #eee;
-	padding: 32px;
-	text-align: center;
+  width: 100%;
+  background-color: #111;
+  color: #eee;
+  bottom: 0;
+  margin-top: 50px;
+  padding: 32px;
+  text-align: center;
 }
 
 form {
-	width: 600px;
-	max-width: 100%;
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-	padding: 32px 48px;
-	margin: 0 auto;
+  width: 800px;
+  display: block;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  padding: 32px 48px;
+  margin: 0 auto;
 }
