@@ -3,9 +3,14 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import api from "./../../axios/index";
-import productSchema from "./../../schemaValidate/Schema";
+import * as z from "zod";
 
 const ProductAdd = ({ onAddProduct }) => {
+  const productSchema = z.object({
+    title: z.string().min(6, { message: "Phải nhập ít nhất 6 ký tự" }),
+    price: z.number().min(0, { message: "Giá phải lớn hơn 0" }),
+    description: z.string(),
+  });
   const { id } = useParams();
   const {
     register,
@@ -23,15 +28,13 @@ const ProductAdd = ({ onAddProduct }) => {
       (async () => {
         try {
           const { data } = await api.get(`/products/${id}`);
-          // console.log(data);
           reset(data);
         } catch (error) {
           console.log(error);
         }
       })();
-    }, []);
+    });
   }
-
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
