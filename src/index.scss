@@ -7,6 +7,11 @@
   margin: 0;
   box-sizing: border-box;
 }
+h1 {
+  font-weight: 800;
+  font-variation-settings: "MORF" 0, "SHLN" 50;
+  font-size: 30px;
+}
 
 body {
   font-family: Arial, sans-serif;
@@ -39,6 +44,7 @@ header {
   font-family: "Honk", system-ui;
   font-weight: 400;
   font-variation-settings: "MORF" 0, "SHLN" 50;
+  font-size: 40px;
 }
 
 .menu {

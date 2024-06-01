@@ -1,11 +1,10 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const Dashboard = ({ data, onDeleteProduct }) => {
   return (
     <>
       <h1>Hello, Admin</h1>
-      <Link to="/admin/product-add" className="btn btn-primary mb-3 mt-3">
+      <Link to="/admin/formproduct" className="btn btn-primary mb-3 mt-3">
         Add new product
       </Link>
       <table className="table table-bordered table-striped text-center">
@@ -40,7 +39,12 @@ const Dashboard = ({ data, onDeleteProduct }) => {
                 >
                   Delete
                 </button>
-                <button className="btn btn-warning w-100  ">Update</button>
+                <Link
+                  to={`/admin/formproduct/${p.id}`}
+                  className="btn btn-warning w-100   "
+                >
+                  Update
+                </Link>
               </td>
             </tr>
           ))}

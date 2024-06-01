@@ -10,7 +10,8 @@ import Footer from "./components/Footer";
 import ProductDetail from "./pages/ProductDetail";
 import api from "./axios";
 import Dashboard from "./pages/admin/Dashboard";
-import ProductAdd from "./pages/admin/ProductAdd";
+import ProductAdd from "./pages/admin/ProductForm";
+import { getProducts } from "./axios/index";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -31,10 +32,21 @@ function App() {
     console.log(data);
     (async () => {
       try {
-        const res = await api.post("/products", data);
-        setProducts([...products, res.data]);
-        if (confirm("Add succefully, redirect to admin page?")) {
-          navigate("/admin");
+        if (data.id) {
+          await api.patch(`/products/${data.id}`, data);
+          const newData = await getProducts();
+          setProducts(newData);
+          if (
+            confirm("Bạn đã sửa thành công , bạn có muốn trở về trang Admin ?")
+          ) {
+            navigate("/admin");
+          }
+        } else {
+          const res = await api.post("/products", data);
+          setProducts([...products, res.data]);
+          if (confirm("Add succefully, redirect to admin page?")) {
+            navigate("/admin");
+          }
         }
       } catch (error) {
         console.log(error);
@@ -70,7 +82,11 @@ function App() {
             }
           />
           <Route
-            path="/admin/product-add"
+            path="/admin/formproduct"
+            element={<ProductAdd onAddProduct={handleSubmit} />}
+          />
+          <Route
+            path="/admin/formproduct/:id"
             element={<ProductAdd onAddProduct={handleSubmit} />}
           />
           <Route path="*" element={<NotFound />} />

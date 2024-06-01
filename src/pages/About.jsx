@@ -1,12 +1,12 @@
 import React from "react";
 
 const About = () => {
-	return (
-		<div className="infor">
-			<h3>Nguyen Minh Hoang</h3>
-			<p>Address: Luc Nam - BG</p>
-		</div>
-	);
+  return (
+    <div className="infor">
+      <h3>Trần Quốc Hoàn</h3>
+      <p>Address: Đông Hưng : Thái Bình</p>
+    </div>
+  );
 };
 
 export default About;

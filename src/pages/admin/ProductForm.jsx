@@ -1,30 +1,41 @@
-import React from "react";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-
-const schema = z.object({
-  title: z.string().min(6).nonempty(),
-  price: z.number().min(0),
-  description: z.string().min(10).nonempty(),
-});
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
+import api from "./../../axios/index";
+import productSchema from "./../../schemaValidate/Schema";
 
 const ProductAdd = ({ onAddProduct }) => {
+  const { id } = useParams();
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: zodResolver(schema) });
+  } = useForm({ resolver: zodResolver(productSchema) });
 
   const onSubmit = (data) => {
     console.log(data);
-    onAddProduct(data);
+    onAddProduct({ ...data, id });
   };
+  if (id) {
+    useEffect(() => {
+      (async () => {
+        try {
+          const { data } = await api.get(`/products/${id}`);
+          // console.log(data);
+          reset(data);
+        } catch (error) {
+          console.log(error);
+        }
+      })();
+    }, []);
+  }
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>Product Add</h1>
+        <h1>{id ? "Edit Product" : "Add Product"}</h1>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">
             Title
@@ -33,7 +44,9 @@ const ProductAdd = ({ onAddProduct }) => {
             type="text"
             className="form-control"
             id="title"
-            {...register("title")}
+            {...register("title", {
+              required: true,
+            })}
           />
           {errors.title && (
             <span className="text-danger">{errors.title.message}</span>
@@ -47,7 +60,10 @@ const ProductAdd = ({ onAddProduct }) => {
             type="number"
             className="form-control"
             id="price"
-            {...register("price")}
+            {...register("price", {
+              required: true,
+              valueAsNumber: true,
+            })}
           />
           {errors.price && (
             <span className="text-danger">{errors.price.message}</span>
@@ -61,7 +77,9 @@ const ProductAdd = ({ onAddProduct }) => {
             type="text"
             className="form-control"
             id="description"
-            {...register("description")}
+            {...register("description", {
+              required: true,
+            })}
           />
           {errors.description && (
             <span className="text-danger">{errors.description.message}</span>

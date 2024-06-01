@@ -7,7 +7,7 @@ const Home = ({ data }) => {
       {data.map((item) => (
         <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-3" key={item.id}>
           <div className="card">
-            <Link to={`/detail/${item.id}`}>
+            <Link to={`/product-detail/${item.id}`}>
               <img
                 src={item.thumbnail}
                 className="card-img-top"
@@ -17,11 +17,14 @@ const Home = ({ data }) => {
             </Link>
             <div className="card-body text-center">
               <h5 className="card-title ">
-                <Link to={`/detail/${item.id}`}>{item.title}</Link>
+                <Link to={`/product-detail/${item.id}`}>{item.title}</Link>
               </h5>
               <p className="card-text">{item.price} $</p>
               <div>
-                <Link to={`/detail/${item.id}`} className="btn btn-warning">
+                <Link
+                  to={`/product-detail/${item.id}`}
+                  className="btn btn-warning"
+                >
                   Xem chi tiết sản phẩm
                 </Link>
               </div>
