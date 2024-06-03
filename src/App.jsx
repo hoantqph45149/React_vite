@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import "./App.scss";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import About from "./pages/About";
-import NotFound from "./pages/NotFound";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import ProductDetail from "./pages/ProductDetail";
+import "./App.scss";
 import api from "./axios";
+import { getProducts } from "./axios/index";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import About from "./pages/About";
+import Auform from "./pages/AuForm";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import ProductDetail from "./pages/ProductDetail";
 import Dashboard from "./pages/admin/Dashboard";
 import ProductAdd from "./pages/admin/ProductForm";
-import { getProducts } from "./axios/index";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -72,7 +72,8 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Home data={products} />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Auform isForm={true} />} />
+          <Route path="/sigin" element={<Auform isForm={false} />} />
           <Route path="/product-detail/:id" element={<ProductDetail />} />
           <Route path="/about" element={<About />} />
           <Route

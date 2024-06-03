@@ -1802,5 +1802,22 @@
       "description": "33333",
       "id": 31
     }
+  ],
+  "users": [
+    {
+      "email": "hoantqph45149@fpt.edu.vn",
+      "password": "$2a$10$GJDTIZmZP3WOGQ9Pnngzhe6YL4QHNHov89vI0R6p4nNw9IXvKv9K.",
+      "id": 1
+    },
+    {
+      "email": "tranhoan2631@gmail.com",
+      "password": "$2a$10$4ZR85IljgLavhW1trwkfVuuucZyNDVbKKqgpZtBZbKL7FcG0huuUa",
+      "id": 2
+    },
+    {
+      "email": "len@gmail.com",
+      "password": "$2a$10$P/C8vBI2vNsPv6HuRUdGfO1wZW5hywWOG2ewcbtr8R/ARBRtHw7na",
+      "id": 3
+    }
   ]
 }

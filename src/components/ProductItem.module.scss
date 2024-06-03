@@ -1,0 +1,22 @@
+.product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .card_body {
+    padding: 10px;
+    text-align: center;
+    h5 {
+      margin: 0;
+    }
+    p {
+      margin: 0;
+    }
+  }
+  .btn {
+    width: 100%;
+  }
+}
